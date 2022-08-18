@@ -8,6 +8,8 @@ cd testing && ginkgo generate set
 
 # You can run tests from vscode or in terminal enter command
 ginkgo -v
+# using slowSpecThreshold
+ginkgo -slowSpecThreshold='5.0' -v  
 
 # Shows example of 
 ReportAfterEach 
@@ -15,3 +17,4 @@ ReportBeforeEach
 ReportAfterSuite
 ReportAfterSuite --> custom report in our format.
 AddReportEnteries
+

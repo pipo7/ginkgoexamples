@@ -6,6 +6,11 @@ import (
 	"os"
 
 	// upgrade to ginkgo v2 https://onsi.github.io/ginkgo/MIGRATING_TO_V2
+
+	// using old version as ginkgo.
+	// g "github.com/onsi/ginkgo"
+
+	//using new version directly using .
 	. "github.com/onsi/ginkgo/v2"
 	. "github.com/onsi/gomega"
 
@@ -13,9 +18,30 @@ import (
 	"testing"
 )
 
+// used for custom reporters when using old code.
+/* const (
+	ReportDir    = ""
+	ReportPrefix = "TestReportPrefix"
+) */
+
 func TestTesting1(t *testing.T) {
 	RegisterFailHandler(Fail)
 	RunSpecs(t, "Testing Suite1")
+	// Use below code with old version of ginkgo
+	/* var r []g.Reporter
+	if ReportDir != "" {
+		// TODO: we should probably only be trying to create this directory once
+		// rather than once-per-Ginkgo-node.
+		if err := os.MkdirAll(ReportDir, 0755); err != nil {
+			log.Fatalf("Failed creating report directory: %v", err)
+		} else {
+			r = append(r, reporters.NewJUnitReporter("a.xml"))
+			//r = append(r, ("junit_0.xml"))
+			//r = append(r, reporters.NewJUnitReporter(path.Join(ReportDir, fmt.Sprintf("junit_%v%02d.xml", ReportPrefix, config.GinkgoConfig.ParallelNode))))
+		}
+	}
+	log.Printf("\nStarting e2e run %q on Ginkgo node %d", "Run1", config.GinkgoConfig.ParallelNode)
+	g.RunSpecsWithDefaultAndCustomReporters(t, "Kubernetes e2e suite", r) */
 }
 
 // ReportAfterSuite is called exactly once at the end of the suite after any AfterSuite nodes have run
